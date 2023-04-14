@@ -35,6 +35,10 @@ classdef FunctionOnGrid
             obj.FunctionWLabel = obj.FunctionWLabel.SetFunction(InFunction);
         end
 
+        function obj = SetLabel (obj, InLabel)
+            obj.FunctionWLabel = obj.FunctionWLabel.SetLabel(InLabel);
+        end
+
         %Methods callable on the matlab terminal via obj.method
         function PlotGridwithLabel(obj)
             figure()

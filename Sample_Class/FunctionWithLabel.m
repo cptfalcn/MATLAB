@@ -27,6 +27,10 @@ classdef FunctionWithLabel
         function obj = SetFunction(obj, Function)
             obj.Function=Function;
         end
+
+        function obj = SetLabel(obj, Label)
+            obj.Label=Label;
+        end
     end
 end
 
