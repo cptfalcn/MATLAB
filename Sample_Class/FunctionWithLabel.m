@@ -2,7 +2,7 @@ classdef FunctionWithLabel
     %FUNCTIONWITHLABEL Summary of this class goes here
     %   Detailed explanation goes here
     
-    properties
+    properties (Access=private)
         Function
         Label
     end
@@ -30,6 +30,10 @@ classdef FunctionWithLabel
 
         function obj = SetLabel(obj, Label)
             obj.Label=Label;
+        end
+
+        function Eval = EvalFunction(obj, Grid)
+            Eval = obj.Function(Grid);
         end
     end
 end

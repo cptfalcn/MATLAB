@@ -34,7 +34,7 @@ classdef FunctionOnGrid
         function obj = SetFunction (obj, InFunction)
             obj.FunctionWLabel = obj.FunctionWLabel.SetFunction(InFunction);
         end
-
+        %And perhaps you want to change the label
         function obj = SetLabel (obj, InLabel)
             obj.FunctionWLabel = obj.FunctionWLabel.SetLabel(InLabel);
         end
@@ -42,8 +42,8 @@ classdef FunctionOnGrid
         %Methods callable on the matlab terminal via obj.method
         function PlotGridwithLabel(obj)
             figure()
-            plot(obj.Grid, obj.FunctionWLabel.Function(obj.Grid),"LineWidth", 2)
-            title(obj.FunctionWLabel.Label)
+            plot(obj.Grid, obj.FunctionWLabel.EvalFunction(obj.Grid),"LineWidth", 2)
+            title(obj.FunctionWLabel.GetLabel)
         end
 
     end
