@@ -11,17 +11,19 @@ classdef FunctionOnGrid
     %That is a full list of property attributes.
     %The basic versions are public and private.
     %======================================================================
-        Grid        %A Grid to evaluate your function over
-        Function    %A function handle @(x), evaluate on GRID
+        Grid            %A Grid to evaluate your function over
+        FunctionWLabel  %A sample of a class in a class
+            %Function        %A function handle @(x), evaluate on GRID
+            %Label           %A label when trying to plot the function
     end
     %----------------------------------------------------------------------
     methods  %These are the things the object can do.
         %Constructor, makes the object.
-        function obj = FunctionOnGrid(Grid,Function)
+        function obj = FunctionOnGrid(Grid,FwL)
             %SAMPLE Construct an instance of this class
             %   Detailed explanation goes here
-            obj.Grid        = Grid;
-            obj.Function    = Function;
+            obj.Grid            = Grid;
+            obj.FunctionWLabel  = FwL;
         end
         %Perhaps you want to reset the grid.
         function obj = SetGrid (obj, InGrid)
@@ -30,14 +32,15 @@ classdef FunctionOnGrid
 
         %Perhaps you want to reset the grid.
         function obj = SetFunction (obj, InFunction)
-            obj.Function= InFunction;
+            obj.FunctionWLabel = obj.FunctionWLabel.SetFunction(InFunction);
         end
 
         %Methods callable on the matlab terminal via obj.method
-        function PlotGrid(obj)
+        function PlotGridwithLabel(obj)
             figure()
-            plot(obj.Grid, obj.Function(obj.Grid))
-        end 
+            plot(obj.Grid, obj.FunctionWLabel.Function(obj.Grid),"LineWidth", 2)
+            title(obj.FunctionWLabel.Label)
+        end
 
     end
 end
